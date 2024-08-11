@@ -1,34 +1,36 @@
 import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
-import 'home_page.dart';
 
 class LoginPage extends StatelessWidget {
   final AuthService _authService = AuthService();
-
-  void _authenticate(BuildContext context) async {
-    final accessToken = await _authService.authenticate();
-
-    if (accessToken != null) {
-      Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HomePage(accessToken: accessToken)));
-    } else {
-      // Handle authentication failure
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Authentication failed. Please try again.")),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login with Spotify'),
+        title: Text('Spotify Login'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () => _authenticate(context),
-          child: Text('Login with Spotify'),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () async {
+                String? token = await _authService.authenticate();
+                if (token != null) {
+                  // If authentication is successful, navigate to the home page
+                  Navigator.pushReplacementNamed(context, '/home');
+                } else {
+                  // If authentication fails, show an error
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Failed to authenticate with Spotify')),
+                  );
+                }
+              },
+              child: Text('Login with Spotify'),
+            ),
+          ],
         ),
       ),
     );

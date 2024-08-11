@@ -13,8 +13,8 @@ dependencies:
     sdk: flutter
 
   # Add your dependencies here
-  http: ^0.13.3
-  flutter_web_auth: ^0.4.0
+  http: ^1.2.2
+  flutter_web_auth: ^0.5.0
   url_launcher: ^6.0.9
   provider: ^6.0.0 # for state management (optional)
   shared_preferences: ^2.0.6 # for storing simple data (optional)
@@ -24,17 +24,18 @@ dev_dependencies:
     sdk: flutter
 
   # Lints for a more standardized and cleaner code
-  flutter_lints: ^2.0.0
+  flutter_lints: ^4.0.0
 
 flutter:
   uses-material-design: true
 
   assets:
     - assets/images/ # Example directory for images
+    - assets/fonts/Roboto-Regular.ttf
 
   fonts:
     - family: Roboto
       fonts:
-        - asset: fonts/Roboto-Regular.ttf
-        - asset: fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
           weight: 700
