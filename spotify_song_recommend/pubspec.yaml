@@ -1,0 +1,40 @@
+name: music_recommender
+description: A new Flutter project for recommending music based on Spotify data.
+
+publish_to: 'none' # Remove this line if you want to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Add your dependencies here
+  http: ^0.13.3
+  flutter_web_auth: ^0.4.0
+  url_launcher: ^6.0.9
+  provider: ^6.0.0 # for state management (optional)
+  shared_preferences: ^2.0.6 # for storing simple data (optional)
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Lints for a more standardized and cleaner code
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/ # Example directory for images
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: fonts/Roboto-Regular.ttf
+        - asset: fonts/Roboto-Bold.ttf
+          weight: 700
